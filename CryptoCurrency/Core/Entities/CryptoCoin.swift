@@ -7,7 +7,7 @@
 
 import Foundation
 
-struct CryptoCoin{
+struct CryptoCoin {
     var id: String
     var rank: Int
     var symbol: String

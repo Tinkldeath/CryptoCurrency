@@ -7,6 +7,6 @@
 
 import Foundation
 
-protocol CryptoListCofiguratorProtocol{
-    func configure()
+protocol CryptoListCofiguratorProtocol {
+    func configure(_ view: CryptoListView)
 }

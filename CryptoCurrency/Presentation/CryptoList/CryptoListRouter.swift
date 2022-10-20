@@ -7,6 +7,6 @@
 
 import Foundation
 
-protocol CryptoListRouterProtocol{
+protocol CryptoListRouterProtocol {
     func presentCoinDetails(_ coin: CryptoCoin)
 }

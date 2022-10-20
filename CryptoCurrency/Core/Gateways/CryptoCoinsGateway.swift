@@ -7,6 +7,6 @@
 
 import Foundation
 
-protocol CryptoCoinsGatewayProtocol{
+protocol CryptoCoinsGatewayProtocol {
     func fetchCoins(_ completionHandler: (_ coins: [CryptoCoin], _ error: Error?) -> Void)
 }

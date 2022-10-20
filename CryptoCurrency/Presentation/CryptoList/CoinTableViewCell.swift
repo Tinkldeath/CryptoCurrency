@@ -7,24 +7,34 @@
 
 import UIKit
 
-class CoinTableViewCell: UITableViewCell, CryptoCoinCellView {
-   
+protocol CryptoCoinCellView {
+    func display(symbol: String)
+    func display(name: String)
+    func display(priceUsd: Double)
+    func display(rank: Int)
+    func display(changePercent24Hr: Double)
+}
+
+class CoinTableViewCell: UITableViewCell {
+       
+    @IBOutlet weak var symbol: UILabel!
+    @IBOutlet weak var name: UILabel!
+    @IBOutlet weak var changePercent24Hr: UILabel!
+    @IBOutlet weak var priceUsd: UILabel!
+    @IBOutlet weak var rank: UILabel!
+    
     override func awakeFromNib() {
         super.awakeFromNib()
-        self.frame = self.bounds
-        // Initialization code
     }
 
     override func setSelected(_ selected: Bool, animated: Bool) {
         super.setSelected(selected, animated: animated)
-        // Configure the view for the selected state
     }
     
-    @IBOutlet weak var symbol: UILabel!
-    @IBOutlet var name: UILabel!
-    @IBOutlet var changePercent24Hr: UILabel!
-    @IBOutlet var priceUsd: UILabel!
-    @IBOutlet var rank: UILabel!
+}
+
+// MARK: - View implementation
+extension CoinTableViewCell: CryptoCoinCellView {
     
     func display(symbol: String) {
         self.symbol.text = symbol

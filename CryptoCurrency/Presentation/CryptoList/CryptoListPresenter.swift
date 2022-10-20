@@ -8,24 +8,17 @@
 import Foundation
 import UIKit
 
-protocol CryptoListPresenterProtocol: AnyObject{
-    var numberOfCoins: Int { get }
-    var router: CryptoListRouterProtocol? { get }
-    
+protocol CryptoListPresenterProtocol: AnyObject {
+    func coinsCount() -> Int
     func configure(_ cell: CryptoCoinCellView, _ row: Int)
     func didSelect(_ row: Int)
 }
 
 class CryptoListPresenter: CryptoListPresenterProtocol{
     
-    private var coins: [CryptoCoin]
-    var numberOfCoins: Int
-    var router: CryptoListRouterProtocol?
+    private var coins: [CryptoCoin] = []
     
     init(){
-        self.coins = []
-        self.numberOfCoins = 0
-        self.router = nil
         generateCoins()
     }
     
@@ -39,15 +32,19 @@ class CryptoListPresenter: CryptoListPresenterProtocol{
     }
     
     func didSelect(_ row: Int) {
-        
+        // Coin display logic
+    }
+    
+    func coinsCount() -> Int {
+        return self.coins.count
     }
     
     //MARK: - Test method, delete soon
     private func generateCoins(){
         for i in 0..<20{
-            let coin = CryptoCoin(id: "", rank: i+1, symbol: "CRC", name: "Crypto \(i+1)", supply: 0.0, maxSupply: 0.0, marketCapUsd: 0.0, volumeUsd24Hr: 0.0, priceUsd: Double.random(in: 1...200000), changePercent24Hr: Double.random(in: -1.0...1.0), vwap24Hr: 0.0)
+            let coin = CryptoCoin(id: "", rank: i+1, symbol: "CRC", name: "Crypto \(i+1)", supply: 0.0, maxSupply: 0.0, marketCapUsd: 0.0, volumeUsd24Hr: 0.0, priceUsd: Double.random(in: 1...200000), changePercent24Hr: Double.random(in: -2.0...2.0), vwap24Hr: 0.0)
             self.coins.append(coin)
         }
-        self.numberOfCoins = self.coins.count
     }
+    
 }

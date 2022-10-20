@@ -12,7 +12,6 @@
 		3214926C2901971E00A32EAF /* CryptoCoinsGateway.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3214926B2901971E00A32EAF /* CryptoCoinsGateway.swift */; };
 		32362D5D290199E900CEFE5F /* CryptoListPresenter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 32362D5C290199E900CEFE5F /* CryptoListPresenter.swift */; };
 		32362D6029019B5300CEFE5F /* CryptoListRouter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 32362D5F29019B5300CEFE5F /* CryptoListRouter.swift */; };
-		32362D6229019BB700CEFE5F /* CryptoCoinCellView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 32362D6129019BB700CEFE5F /* CryptoCoinCellView.swift */; };
 		325D89022901DD9B00CAC0A5 /* CoinTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 325D89002901DD9B00CAC0A5 /* CoinTableViewCell.swift */; };
 		325D89032901DD9B00CAC0A5 /* CoinTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 325D89012901DD9B00CAC0A5 /* CoinTableViewCell.xib */; };
 		325F0B74290017950048E536 /* CryptoListTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 325F0B73290017950048E536 /* CryptoListTableViewController.swift */; };
@@ -31,7 +30,6 @@
 		3214926B2901971E00A32EAF /* CryptoCoinsGateway.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CryptoCoinsGateway.swift; sourceTree = "<group>"; };
 		32362D5C290199E900CEFE5F /* CryptoListPresenter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CryptoListPresenter.swift; sourceTree = "<group>"; };
 		32362D5F29019B5300CEFE5F /* CryptoListRouter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CryptoListRouter.swift; sourceTree = "<group>"; };
-		32362D6129019BB700CEFE5F /* CryptoCoinCellView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CryptoCoinCellView.swift; sourceTree = "<group>"; };
 		325D89002901DD9B00CAC0A5 /* CoinTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CoinTableViewCell.swift; sourceTree = "<group>"; };
 		325D89012901DD9B00CAC0A5 /* CoinTableViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = CoinTableViewCell.xib; sourceTree = "<group>"; };
 		325F0B73290017950048E536 /* CryptoListTableViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CryptoListTableViewController.swift; sourceTree = "<group>"; };
@@ -71,9 +69,7 @@
 				325F0B73290017950048E536 /* CryptoListTableViewController.swift */,
 				32362D5C290199E900CEFE5F /* CryptoListPresenter.swift */,
 				32362D5F29019B5300CEFE5F /* CryptoListRouter.swift */,
-				32362D6129019BB700CEFE5F /* CryptoCoinCellView.swift */,
 				325D89002901DD9B00CAC0A5 /* CoinTableViewCell.swift */,
-				325D89012901DD9B00CAC0A5 /* CoinTableViewCell.xib */,
 				32D6CCF52901EA7F00A40281 /* CryptoListConfigurator.swift */,
 			);
 			path = CryptoList;
@@ -124,6 +120,7 @@
 		325F0B8E2901661F0048E536 /* Presentation */ = {
 			isa = PBXGroup;
 			children = (
+				32D6CCF72901F4BF00A40281 /* xibs */,
 				32362D5E29019A0000CEFE5F /* CryptoCoinDetails */,
 				3214926D2901996300A32EAF /* CryptoList */,
 				325F0B4028FEDFE90048E536 /* Storybards */,
@@ -167,6 +164,14 @@
 				326AA82828F979CF001C2AC0 /* Info.plist */,
 			);
 			path = CryptoCurrency;
+			sourceTree = "<group>";
+		};
+		32D6CCF72901F4BF00A40281 /* xibs */ = {
+			isa = PBXGroup;
+			children = (
+				325D89012901DD9B00CAC0A5 /* CoinTableViewCell.xib */,
+			);
+			path = xibs;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -243,7 +248,6 @@
 			files = (
 				325D89022901DD9B00CAC0A5 /* CoinTableViewCell.swift in Sources */,
 				3214926429018EDA00A32EAF /* CryptoCoinDetailsViewController.swift in Sources */,
-				32362D6229019BB700CEFE5F /* CryptoCoinCellView.swift in Sources */,
 				3214925D29018B9600A32EAF /* CryptoCoinsListInteractor.swift in Sources */,
 				326AA81B28F979CE001C2AC0 /* AppDelegate.swift in Sources */,
 				32362D5D290199E900CEFE5F /* CryptoListPresenter.swift in Sources */,

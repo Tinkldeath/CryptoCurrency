@@ -7,6 +7,10 @@
 
 import UIKit
 
+protocol CryptoListView: AnyObject {
+    func refreshList()
+}
+
 class CryptoListTableViewController: UITableViewController {
     
     private lazy var detailsVC = generateDetailPage()
@@ -31,10 +35,24 @@ class CryptoListTableViewController: UITableViewController {
         super.init(style: style)
         configure()
     }
+    
+}
 
-    private func configure(){
+// MARK: - View configuration methods
+extension CryptoListTableViewController: CryptoListView {
+    
+    private func configure() {
         self.presenter = CryptoListPresenter()
     }
+    
+    func refreshList() {
+        self.tableView.reloadData()
+    }
+    
+}
+
+// MARK: - Lazy loading pagination
+extension CryptoListTableViewController {
     
     private func generateDetailPage() -> UIViewController? {
         if let vc = self.storyboard?.instantiateViewController(withIdentifier: "CryptoCoinDetailsViewController") as? CryptoCoinDetailsViewController{
@@ -42,16 +60,18 @@ class CryptoListTableViewController: UITableViewController {
         }
         return nil
     }
+    
 }
 
+// MARK: - Table view data source & delegate
 extension CryptoListTableViewController {
-    // MARK: - Table view data source & delegate
+    
     override func numberOfSections(in tableView: UITableView) -> Int {
         return 1
     }
 
     override func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return presenter.numberOfCoins
+        return presenter.coinsCount()
     }
 
     override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
@@ -67,4 +87,5 @@ extension CryptoListTableViewController {
             self.navigationController?.pushViewController(vc, animated: true)
         }
     }
+    
 }

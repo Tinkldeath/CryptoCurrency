@@ -7,11 +7,11 @@
 
 import Foundation
 
-protocol CryptoCoinsListInteractorProtocol{
+protocol CryptoCoinsListInteractorProtocol {
     func displayCoinsList(_ completionHandler: (_ coins: [CryptoCoin], _ error: Error?) -> Void)
 }
 
-class CryptoCoinsListInteractor: CryptoCoinsListInteractorProtocol{
+class CryptoCoinsListInteractor: CryptoCoinsListInteractorProtocol {
     
     private let coinsGateway: CryptoCoinsGatewayProtocol
     
@@ -24,4 +24,5 @@ class CryptoCoinsListInteractor: CryptoCoinsListInteractorProtocol{
             completionHandler(coins, error)
         }
     }
+    
 }
