@@ -8,5 +8,5 @@
 import Foundation
 
 protocol CryptoCoinsGatewayProtocol {
-    func fetchCoins(_ completionHandler: (_ coins: [CryptoCoin], _ error: Error?) -> Void)
+    func fetchCoins(_ completionHandler: @escaping (_ coins: [CryptoCoin], _ error: Error?) -> Void)
 }

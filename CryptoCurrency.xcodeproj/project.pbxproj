@@ -7,6 +7,9 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		3201A01D2902C31E0034CB44 /* CoincapApiCoinsParser.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3201A01C2902C31E0034CB44 /* CoincapApiCoinsParser.swift */; };
+		3201A01F2902E6400034CB44 /* CoincapApiClient.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3201A01E2902E6400034CB44 /* CoincapApiClient.swift */; };
+		3201A0212902E6A90034CB44 /* CoincapApiRequest.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3201A0202902E6A90034CB44 /* CoincapApiRequest.swift */; };
 		3214925D29018B9600A32EAF /* CryptoCoinsListInteractor.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3214925C29018B9600A32EAF /* CryptoCoinsListInteractor.swift */; };
 		3214926429018EDA00A32EAF /* CryptoCoinDetailsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3214926329018EDA00A32EAF /* CryptoCoinDetailsViewController.swift */; };
 		3214926C2901971E00A32EAF /* CryptoCoinsGateway.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3214926B2901971E00A32EAF /* CryptoCoinsGateway.swift */; };
@@ -22,9 +25,20 @@
 		326AA82428F979CF001C2AC0 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 326AA82328F979CF001C2AC0 /* Assets.xcassets */; };
 		326AA82728F979CF001C2AC0 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 326AA82528F979CF001C2AC0 /* LaunchScreen.storyboard */; };
 		32D6CCF62901EA7F00A40281 /* CryptoListConfigurator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 32D6CCF52901EA7F00A40281 /* CryptoListConfigurator.swift */; };
+		32D6CCFA2902B66100A40281 /* CoincapApiCoin.swift in Sources */ = {isa = PBXBuildFile; fileRef = 32D6CCF92902B66100A40281 /* CoincapApiCoin.swift */; };
+		32D6CCFD2902B88E00A40281 /* RawDataCoinsEntity.swift in Sources */ = {isa = PBXBuildFile; fileRef = 32D6CCFC2902B88E00A40281 /* RawDataCoinsEntity.swift */; };
+		32D6CD072902BA6200A40281 /* CoincapApiGateway.swift in Sources */ = {isa = PBXBuildFile; fileRef = 32D6CD062902BA6200A40281 /* CoincapApiGateway.swift */; };
+		32D6CD092902BAC300A40281 /* RawDataStoreCoins.swift in Sources */ = {isa = PBXBuildFile; fileRef = 32D6CD082902BAC300A40281 /* RawDataStoreCoins.swift */; };
+		32D6CD0B2902BB1C00A40281 /* CoincapApiDataStore.swift in Sources */ = {isa = PBXBuildFile; fileRef = 32D6CD0A2902BB1C00A40281 /* CoincapApiDataStore.swift */; };
+		32D6CD0D2902BCEC00A40281 /* ApiClient.swift in Sources */ = {isa = PBXBuildFile; fileRef = 32D6CD0C2902BCEC00A40281 /* ApiClient.swift */; };
+		32D6CD0F2902BCF600A40281 /* RawDataCoinsParser.swift in Sources */ = {isa = PBXBuildFile; fileRef = 32D6CD0E2902BCF600A40281 /* RawDataCoinsParser.swift */; };
+		32D6CD112902BE0100A40281 /* ApiRequest.swift in Sources */ = {isa = PBXBuildFile; fileRef = 32D6CD102902BE0100A40281 /* ApiRequest.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		3201A01C2902C31E0034CB44 /* CoincapApiCoinsParser.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CoincapApiCoinsParser.swift; sourceTree = "<group>"; };
+		3201A01E2902E6400034CB44 /* CoincapApiClient.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CoincapApiClient.swift; sourceTree = "<group>"; };
+		3201A0202902E6A90034CB44 /* CoincapApiRequest.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CoincapApiRequest.swift; sourceTree = "<group>"; };
 		3214925C29018B9600A32EAF /* CryptoCoinsListInteractor.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CryptoCoinsListInteractor.swift; sourceTree = "<group>"; };
 		3214926329018EDA00A32EAF /* CryptoCoinDetailsViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CryptoCoinDetailsViewController.swift; sourceTree = "<group>"; };
 		3214926B2901971E00A32EAF /* CryptoCoinsGateway.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CryptoCoinsGateway.swift; sourceTree = "<group>"; };
@@ -42,6 +56,14 @@
 		326AA82628F979CF001C2AC0 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		326AA82828F979CF001C2AC0 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		32D6CCF52901EA7F00A40281 /* CryptoListConfigurator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CryptoListConfigurator.swift; sourceTree = "<group>"; };
+		32D6CCF92902B66100A40281 /* CoincapApiCoin.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CoincapApiCoin.swift; sourceTree = "<group>"; };
+		32D6CCFC2902B88E00A40281 /* RawDataCoinsEntity.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RawDataCoinsEntity.swift; sourceTree = "<group>"; };
+		32D6CD062902BA6200A40281 /* CoincapApiGateway.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CoincapApiGateway.swift; sourceTree = "<group>"; };
+		32D6CD082902BAC300A40281 /* RawDataStoreCoins.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RawDataStoreCoins.swift; sourceTree = "<group>"; };
+		32D6CD0A2902BB1C00A40281 /* CoincapApiDataStore.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CoincapApiDataStore.swift; sourceTree = "<group>"; };
+		32D6CD0C2902BCEC00A40281 /* ApiClient.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ApiClient.swift; sourceTree = "<group>"; };
+		32D6CD0E2902BCF600A40281 /* RawDataCoinsParser.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RawDataCoinsParser.swift; sourceTree = "<group>"; };
+		32D6CD102902BE0100A40281 /* ApiRequest.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ApiRequest.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -55,6 +77,14 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		3201A01B2902C3050034CB44 /* Parsers */ = {
+			isa = PBXGroup;
+			children = (
+				3201A01C2902C31E0034CB44 /* CoincapApiCoinsParser.swift */,
+			);
+			path = Parsers;
+			sourceTree = "<group>";
+		};
 		321492692901965E00A32EAF /* Gateways */ = {
 			isa = PBXGroup;
 			children = (
@@ -95,6 +125,11 @@
 		325F0B8729005A210048E536 /* Data */ = {
 			isa = PBXGroup;
 			children = (
+				32D6CD012902BA0100A40281 /* Local */,
+				32D6CD002902B9DD00A40281 /* API */,
+				32D6CCFC2902B88E00A40281 /* RawDataCoinsEntity.swift */,
+				32D6CD082902BAC300A40281 /* RawDataStoreCoins.swift */,
+				32D6CD0E2902BCF600A40281 /* RawDataCoinsParser.swift */,
 			);
 			path = Data;
 			sourceTree = "<group>";
@@ -174,6 +209,76 @@
 			path = xibs;
 			sourceTree = "<group>";
 		};
+		32D6CCF82902B64100A40281 /* RawDataEntities */ = {
+			isa = PBXGroup;
+			children = (
+				32D6CCF92902B66100A40281 /* CoincapApiCoin.swift */,
+			);
+			path = RawDataEntities;
+			sourceTree = "<group>";
+		};
+		32D6CCFB2902B77600A40281 /* DataStores */ = {
+			isa = PBXGroup;
+			children = (
+				32D6CD0A2902BB1C00A40281 /* CoincapApiDataStore.swift */,
+				3201A01E2902E6400034CB44 /* CoincapApiClient.swift */,
+				3201A0202902E6A90034CB44 /* CoincapApiRequest.swift */,
+			);
+			path = DataStores;
+			sourceTree = "<group>";
+		};
+		32D6CD002902B9DD00A40281 /* API */ = {
+			isa = PBXGroup;
+			children = (
+				3201A01B2902C3050034CB44 /* Parsers */,
+				32D6CD052902BA3F00A40281 /* Gateways */,
+				32D6CCF82902B64100A40281 /* RawDataEntities */,
+				32D6CCFB2902B77600A40281 /* DataStores */,
+				32D6CD0C2902BCEC00A40281 /* ApiClient.swift */,
+				32D6CD102902BE0100A40281 /* ApiRequest.swift */,
+			);
+			path = API;
+			sourceTree = "<group>";
+		};
+		32D6CD012902BA0100A40281 /* Local */ = {
+			isa = PBXGroup;
+			children = (
+				32D6CD042902BA2700A40281 /* Gateways */,
+				32D6CD032902BA2000A40281 /* DataStores */,
+				32D6CD022902BA1700A40281 /* RawDataEntities */,
+			);
+			path = Local;
+			sourceTree = "<group>";
+		};
+		32D6CD022902BA1700A40281 /* RawDataEntities */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = RawDataEntities;
+			sourceTree = "<group>";
+		};
+		32D6CD032902BA2000A40281 /* DataStores */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = DataStores;
+			sourceTree = "<group>";
+		};
+		32D6CD042902BA2700A40281 /* Gateways */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = Gateways;
+			sourceTree = "<group>";
+		};
+		32D6CD052902BA3F00A40281 /* Gateways */ = {
+			isa = PBXGroup;
+			children = (
+				32D6CD062902BA6200A40281 /* CoincapApiGateway.swift */,
+			);
+			path = Gateways;
+			sourceTree = "<group>";
+		};
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
@@ -246,14 +351,25 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				32D6CD112902BE0100A40281 /* ApiRequest.swift in Sources */,
 				325D89022901DD9B00CAC0A5 /* CoinTableViewCell.swift in Sources */,
 				3214926429018EDA00A32EAF /* CryptoCoinDetailsViewController.swift in Sources */,
+				32D6CD0B2902BB1C00A40281 /* CoincapApiDataStore.swift in Sources */,
 				3214925D29018B9600A32EAF /* CryptoCoinsListInteractor.swift in Sources */,
+				32D6CD0D2902BCEC00A40281 /* ApiClient.swift in Sources */,
+				3201A0212902E6A90034CB44 /* CoincapApiRequest.swift in Sources */,
+				3201A01D2902C31E0034CB44 /* CoincapApiCoinsParser.swift in Sources */,
+				32D6CD072902BA6200A40281 /* CoincapApiGateway.swift in Sources */,
 				326AA81B28F979CE001C2AC0 /* AppDelegate.swift in Sources */,
+				32D6CCFD2902B88E00A40281 /* RawDataCoinsEntity.swift in Sources */,
 				32362D5D290199E900CEFE5F /* CryptoListPresenter.swift in Sources */,
+				3201A01F2902E6400034CB44 /* CoincapApiClient.swift in Sources */,
 				3214926C2901971E00A32EAF /* CryptoCoinsGateway.swift in Sources */,
+				32D6CD092902BAC300A40281 /* RawDataStoreCoins.swift in Sources */,
 				326AA81D28F979CE001C2AC0 /* SceneDelegate.swift in Sources */,
+				32D6CCFA2902B66100A40281 /* CoincapApiCoin.swift in Sources */,
 				325F0B74290017950048E536 /* CryptoListTableViewController.swift in Sources */,
+				32D6CD0F2902BCF600A40281 /* RawDataCoinsParser.swift in Sources */,
 				32362D6029019B5300CEFE5F /* CryptoListRouter.swift in Sources */,
 				325F0B91290166760048E536 /* CryptoCoin.swift in Sources */,
 				32D6CCF62901EA7F00A40281 /* CryptoListConfigurator.swift in Sources */,

@@ -8,45 +8,55 @@
 import UIKit
 
 protocol CryptoListView: AnyObject {
+    func setPresenter(_ presenter: CryptoListPresenterProtocol)
     func refreshList()
+    func displayError(_ error: Error)
 }
 
 class CryptoListTableViewController: UITableViewController {
     
     private lazy var detailsVC = generateDetailPage()
     private var presenter: CryptoListPresenterProtocol!
+    private var configurator = CryptoListConfigurator()
 
     override func viewDidLoad() {
         super.viewDidLoad()
+        configurator.configure(self)
+        presenter.load()
         self.tableView.register(UINib(nibName: "CoinTableViewCell", bundle: nil), forCellReuseIdentifier: "CoinTableViewCell")
     }
     
     override init(nibName nibNameOrNil: String?, bundle nibBundleOrNil: Bundle?) {
         super.init(nibName: nibNameOrNil, bundle: nibBundleOrNil)
-        configure()
     }
     
     required init?(coder: NSCoder) {
         super.init(coder: coder)
-        configure()
     }
     
     required override init(style: UITableView.Style) {
         super.init(style: style)
-        configure()
     }
     
 }
 
 // MARK: - View configuration methods
 extension CryptoListTableViewController: CryptoListView {
-    
-    private func configure() {
-        self.presenter = CryptoListPresenter()
+    func setPresenter(_ presenter: CryptoListPresenterProtocol) {
+        self.presenter = presenter
     }
     
     func refreshList() {
-        self.tableView.reloadData()
+        DispatchQueue.main.async {
+            self.tableView.reloadData()
+        }
+    }
+    
+    func displayError(_ error: Error) {
+        let ac = UIAlertController(title: "An error occured", message: String(describing: error), preferredStyle: .alert)
+        ac.addAction(UIAlertAction(title: "OK", style: .default))
+        print(String(describing: error))
+        present(ac, animated: true)
     }
     
 }

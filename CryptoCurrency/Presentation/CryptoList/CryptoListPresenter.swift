@@ -9,6 +9,7 @@ import Foundation
 import UIKit
 
 protocol CryptoListPresenterProtocol: AnyObject {
+    func load()
     func coinsCount() -> Int
     func configure(_ cell: CryptoCoinCellView, _ row: Int)
     func didSelect(_ row: Int)
@@ -16,12 +17,24 @@ protocol CryptoListPresenterProtocol: AnyObject {
 
 class CryptoListPresenter: CryptoListPresenterProtocol{
     
-    private var coins: [CryptoCoin] = []
+    private var interactor: CryptoCoinsListInteractorProtocol
+    private weak var view: CryptoListView?
+    private var coins = [CryptoCoin]()
     
-    init(){
-        generateCoins()
+    init(interactor: CryptoCoinsListInteractorProtocol, view: CryptoListView?) {
+        self.interactor = interactor
+        self.view = view
     }
     
+    func load() {
+        self.interactor.displayCoinsList { coins, error in
+            self.displayCoins(coins)
+            if let error = error{
+                self.view?.displayError(error)
+            }
+        }
+    }
+        
     func configure(_ cell: CryptoCoinCellView, _ row: Int) {
         let coin = self.coins[row]
         cell.display(symbol: coin.symbol)
@@ -39,12 +52,17 @@ class CryptoListPresenter: CryptoListPresenterProtocol{
         return self.coins.count
     }
     
-    //MARK: - Test method, delete soon
-    private func generateCoins(){
-        for i in 0..<20{
-            let coin = CryptoCoin(id: "", rank: i+1, symbol: "CRC", name: "Crypto \(i+1)", supply: 0.0, maxSupply: 0.0, marketCapUsd: 0.0, volumeUsd24Hr: 0.0, priceUsd: Double.random(in: 1...200000), changePercent24Hr: Double.random(in: -2.0...2.0), vwap24Hr: 0.0)
-            self.coins.append(coin)
-        }
+    private func displayCoins(_ coins: [CryptoCoin]){
+        self.coins = coins
+        self.view?.refreshList()
     }
+    
+//    //MARK: - Test method, delete soon
+//    private func generateCoins(){
+//        for i in 0..<20{
+//            let coin = CryptoCoin(id: "", rank: i+1, symbol: "CRC", name: "Crypto \(i+1)", supply: 0.0, maxSupply: 0.0, marketCapUsd: 0.0, volumeUsd24Hr: 0.0, priceUsd: Double.random(in: 1...200000), changePercent24Hr: Double.random(in: -2.0...2.0), vwap24Hr: 0.0)
+//            self.coins.append(coin)
+//        }
+//    }
     
 }

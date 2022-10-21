@@ -7,8 +7,8 @@
 
 import Foundation
 
-protocol CryptoCoinsListInteractorProtocol {
-    func displayCoinsList(_ completionHandler: (_ coins: [CryptoCoin], _ error: Error?) -> Void)
+protocol CryptoCoinsListInteractorProtocol: AnyObject {
+    func displayCoinsList(_ completionHandler: @escaping (_ coins: [CryptoCoin], _ error: Error?) -> Void)
 }
 
 class CryptoCoinsListInteractor: CryptoCoinsListInteractorProtocol {
@@ -19,7 +19,7 @@ class CryptoCoinsListInteractor: CryptoCoinsListInteractorProtocol {
         self.coinsGateway = coinsGateway
     }
     
-    func displayCoinsList(_ completionHandler: (_ coins: [CryptoCoin], _ error: Error?) -> Void) {
+    func displayCoinsList(_ completionHandler: @escaping (_ coins: [CryptoCoin], _ error: Error?) -> Void) {
         self.coinsGateway.fetchCoins { coins, error in
             completionHandler(coins, error)
         }
