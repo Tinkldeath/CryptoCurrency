@@ -24,5 +24,4 @@ class CryptoCoinsListInteractor: CryptoCoinsListInteractorProtocol {
             completionHandler(coins, error)
         }
     }
-    
 }

@@ -27,10 +27,15 @@ class CryptoListPresenter: CryptoListPresenterProtocol{
     }
     
     func load() {
-        self.interactor.displayCoinsList { coins, error in
-            self.displayCoins(coins)
-            if let error = error{
-                self.view?.displayError(error)
+        self.view?.displayLoad()
+        let queue = DispatchQueue.global(qos: .utility)
+        queue.async {
+            self.interactor.displayCoinsList { coins, error in
+                DispatchQueue.main.async {
+                    self.view?.displayEndLoad()
+                    self.displayCoins(coins)
+                    self.displayError(error)
+                }
             }
         }
     }
@@ -55,6 +60,12 @@ class CryptoListPresenter: CryptoListPresenterProtocol{
     private func displayCoins(_ coins: [CryptoCoin]){
         self.coins = coins
         self.view?.refreshList()
+    }
+    
+    private func displayError(_ error: Error?){
+        if let error = error{
+            self.view?.displayError(error)
+        }
     }
     
 //    //MARK: - Test method, delete soon

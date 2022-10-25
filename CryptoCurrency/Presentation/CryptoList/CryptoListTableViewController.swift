@@ -11,6 +11,8 @@ protocol CryptoListView: AnyObject {
     func setPresenter(_ presenter: CryptoListPresenterProtocol)
     func refreshList()
     func displayError(_ error: Error)
+    func displayLoad()
+    func displayEndLoad()
 }
 
 class CryptoListTableViewController: UITableViewController {
@@ -18,12 +20,13 @@ class CryptoListTableViewController: UITableViewController {
     private lazy var detailsVC = generateDetailPage()
     private var presenter: CryptoListPresenterProtocol!
     private var configurator = CryptoListConfigurator()
+    private var spinner: UIActivityIndicatorView!
 
     override func viewDidLoad() {
         super.viewDidLoad()
+        self.setupView()
         configurator.configure(self)
         presenter.load()
-        self.tableView.register(UINib(nibName: "CoinTableViewCell", bundle: nil), forCellReuseIdentifier: "CoinTableViewCell")
     }
     
     override init(nibName nibNameOrNil: String?, bundle nibBundleOrNil: Bundle?) {
@@ -38,6 +41,10 @@ class CryptoListTableViewController: UITableViewController {
         super.init(style: style)
     }
     
+    @IBAction func refreshClicked(_ sender: UIBarButtonItem) {
+        self.presenter.load()
+    }
+    
 }
 
 // MARK: - View configuration methods
@@ -47,9 +54,7 @@ extension CryptoListTableViewController: CryptoListView {
     }
     
     func refreshList() {
-        DispatchQueue.main.async {
-            self.tableView.reloadData()
-        }
+        self.tableView.reloadData()
     }
     
     func displayError(_ error: Error) {
@@ -59,6 +64,21 @@ extension CryptoListTableViewController: CryptoListView {
         present(ac, animated: true)
     }
     
+    func displayLoad() {
+        self.spinner.center = CGPoint(x: self.view.center.x, y: self.view.center.y-50)
+        self.view.addSubview(self.spinner)
+        self.spinner.startAnimating()
+    }
+    
+    func displayEndLoad() {
+        self.spinner.removeFromSuperview()
+    }
+    
+    private func setupView(){
+        self.spinner = UIActivityIndicatorView(frame: CGRect(x: 0, y: 0, width: 100, height: 100))
+        self.spinner.style = .medium
+        self.tableView.register(UINib(nibName: "CoinTableViewCell", bundle: nil), forCellReuseIdentifier: "CoinTableViewCell")
+    }
 }
 
 // MARK: - Lazy loading pagination

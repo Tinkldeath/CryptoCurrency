@@ -35,6 +35,9 @@
                     <navigationItem key="navigationItem" title="Currencies" id="agp-nm-HxH">
                         <barButtonItem key="rightBarButtonItem" title="Refresh" image="arrow.clockwise" catalog="system" id="Goq-WC-oVY">
                             <color key="tintColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                            <connections>
+                                <action selector="refreshClicked:" destination="sKc-rp-klE" id="e5l-Nh-pAn"/>
+                            </connections>
                         </barButtonItem>
                     </navigationItem>
                 </tableViewController>
