@@ -11,7 +11,7 @@ struct NetworkingError: Error{
     var description: String
 }
 
-class CoincapApiDataStore: RawDataStoreCoinsProtocol {
+final class CoincapApiDataStore: RawDataStoreCoinsProtocol {
     
     private let parser: RawDataCoinsParser
     private let apiClient: ApiClientProtocol
@@ -26,26 +26,15 @@ class CoincapApiDataStore: RawDataStoreCoinsProtocol {
     func requestData(_ completionHandler: @escaping (_ data: [RawDataCoinsEntity], _ error: Error?) -> Void) {
         if let request = self.apiRequest.generateRequest() {
             self.apiClient.executeRequest(request) { data, error in
-                guard let data = data else {
-                    self.handleError(NetworkingError(description: "Empty data"), completionHandler)
-                    return
-                }
-                if let error = error{
-                    self.handleError(error, completionHandler)
-                }
+                guard let data = data else { completionHandler([], NetworkingError(description: "No data")); return}
                 do{
                     let coins = try self.parser.parse(data)
                     completionHandler(coins, nil)
                 }catch{
-                    self.handleError(error, completionHandler)
+                    completionHandler([], error)
                 }
             }
-        }else{
-            self.handleError(NetworkingError(description: "Incorrect request"), completionHandler)
         }
     }
     
-    private func handleError(_ error: Error, _ completionHandler: (_ data: [RawDataCoinsEntity], _ error: Error?) -> Void ){
-        completionHandler([], error)
-    }
 }

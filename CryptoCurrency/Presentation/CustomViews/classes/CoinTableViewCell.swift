@@ -8,11 +8,7 @@
 import UIKit
 
 protocol CryptoCoinCellView {
-    func display(symbol: String)
-    func display(name: String)
-    func display(priceUsd: Double)
-    func display(rank: Int)
-    func display(changePercent24Hr: Double)
+    func display(symbol: String, name: String, priceUsd: Double, rank: Int, changePercent24Hr: Double)
 }
 
 class CoinTableViewCell: UITableViewCell {
@@ -36,23 +32,15 @@ class CoinTableViewCell: UITableViewCell {
 // MARK: - View implementation
 extension CoinTableViewCell: CryptoCoinCellView {
     
-    func display(symbol: String) {
+    func display(symbol: String, name: String, priceUsd: Double, rank: Int, changePercent24Hr: Double) {
         self.symbol.text = symbol
-    }
-    
-    func display(name: String) {
         self.name.text = name
-    }
-    
-    func display(priceUsd: Double) {
         self.priceUsd.text = "\(Double(round(priceUsd*100)/100)) USD"
-    }
-    
-    func display(rank: Int) {
         self.rank.text = "Rank: \(rank)"
+        self.display(changePercent24Hr: changePercent24Hr)
     }
     
-    func display(changePercent24Hr: Double) {
+    private func display(changePercent24Hr: Double) {
         let tuple = changePercent24Hr < 0 ? (sign: "", color: UIColor.red) : (sign: "+", color: UIColor.green)
         self.changePercent24Hr.text = tuple.sign + "\(Double(round(changePercent24Hr*1000000)/1000000))%"
         self.changePercent24Hr.textColor = tuple.color

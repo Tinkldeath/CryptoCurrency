@@ -10,11 +10,11 @@
 		3201A01D2902C31E0034CB44 /* CoincapApiCoinsParser.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3201A01C2902C31E0034CB44 /* CoincapApiCoinsParser.swift */; };
 		3201A01F2902E6400034CB44 /* CoincapApiClient.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3201A01E2902E6400034CB44 /* CoincapApiClient.swift */; };
 		3201A0212902E6A90034CB44 /* CoincapApiRequest.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3201A0202902E6A90034CB44 /* CoincapApiRequest.swift */; };
-		3214925D29018B9600A32EAF /* CryptoCoinsListInteractor.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3214925C29018B9600A32EAF /* CryptoCoinsListInteractor.swift */; };
-		3214926429018EDA00A32EAF /* CryptoCoinDetailsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3214926329018EDA00A32EAF /* CryptoCoinDetailsViewController.swift */; };
+		3214925D29018B9600A32EAF /* CryptoListInteractor.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3214925C29018B9600A32EAF /* CryptoListInteractor.swift */; };
 		3214926C2901971E00A32EAF /* CryptoCoinsGateway.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3214926B2901971E00A32EAF /* CryptoCoinsGateway.swift */; };
+		32200A132909D28A00BCCA7B /* CryptoCoinDetailsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 32200A112909D28A00BCCA7B /* CryptoCoinDetailsViewController.swift */; };
+		32200A142909D28A00BCCA7B /* CryptoCoinDetailsViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 32200A122909D28A00BCCA7B /* CryptoCoinDetailsViewController.xib */; };
 		32362D5D290199E900CEFE5F /* CryptoListPresenter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 32362D5C290199E900CEFE5F /* CryptoListPresenter.swift */; };
-		32362D6029019B5300CEFE5F /* CryptoListRouter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 32362D5F29019B5300CEFE5F /* CryptoListRouter.swift */; };
 		325D89022901DD9B00CAC0A5 /* CoinTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 325D89002901DD9B00CAC0A5 /* CoinTableViewCell.swift */; };
 		325D89032901DD9B00CAC0A5 /* CoinTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 325D89012901DD9B00CAC0A5 /* CoinTableViewCell.xib */; };
 		325F0B74290017950048E536 /* CryptoListTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 325F0B73290017950048E536 /* CryptoListTableViewController.swift */; };
@@ -39,11 +39,11 @@
 		3201A01C2902C31E0034CB44 /* CoincapApiCoinsParser.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CoincapApiCoinsParser.swift; sourceTree = "<group>"; };
 		3201A01E2902E6400034CB44 /* CoincapApiClient.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CoincapApiClient.swift; sourceTree = "<group>"; };
 		3201A0202902E6A90034CB44 /* CoincapApiRequest.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CoincapApiRequest.swift; sourceTree = "<group>"; };
-		3214925C29018B9600A32EAF /* CryptoCoinsListInteractor.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CryptoCoinsListInteractor.swift; sourceTree = "<group>"; };
-		3214926329018EDA00A32EAF /* CryptoCoinDetailsViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CryptoCoinDetailsViewController.swift; sourceTree = "<group>"; };
+		3214925C29018B9600A32EAF /* CryptoListInteractor.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CryptoListInteractor.swift; sourceTree = "<group>"; };
 		3214926B2901971E00A32EAF /* CryptoCoinsGateway.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CryptoCoinsGateway.swift; sourceTree = "<group>"; };
+		32200A112909D28A00BCCA7B /* CryptoCoinDetailsViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CryptoCoinDetailsViewController.swift; sourceTree = "<group>"; };
+		32200A122909D28A00BCCA7B /* CryptoCoinDetailsViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = CryptoCoinDetailsViewController.xib; sourceTree = "<group>"; };
 		32362D5C290199E900CEFE5F /* CryptoListPresenter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CryptoListPresenter.swift; sourceTree = "<group>"; };
-		32362D5F29019B5300CEFE5F /* CryptoListRouter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CryptoListRouter.swift; sourceTree = "<group>"; };
 		325D89002901DD9B00CAC0A5 /* CoinTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CoinTableViewCell.swift; sourceTree = "<group>"; };
 		325D89012901DD9B00CAC0A5 /* CoinTableViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = CoinTableViewCell.xib; sourceTree = "<group>"; };
 		325F0B73290017950048E536 /* CryptoListTableViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CryptoListTableViewController.swift; sourceTree = "<group>"; };
@@ -98,19 +98,9 @@
 			children = (
 				325F0B73290017950048E536 /* CryptoListTableViewController.swift */,
 				32362D5C290199E900CEFE5F /* CryptoListPresenter.swift */,
-				32362D5F29019B5300CEFE5F /* CryptoListRouter.swift */,
-				325D89002901DD9B00CAC0A5 /* CoinTableViewCell.swift */,
 				32D6CCF52901EA7F00A40281 /* CryptoListConfigurator.swift */,
 			);
 			path = CryptoList;
-			sourceTree = "<group>";
-		};
-		32362D5E29019A0000CEFE5F /* CryptoCoinDetails */ = {
-			isa = PBXGroup;
-			children = (
-				3214926329018EDA00A32EAF /* CryptoCoinDetailsViewController.swift */,
-			);
-			path = CryptoCoinDetails;
 			sourceTree = "<group>";
 		};
 		325F0B4028FEDFE90048E536 /* Storybards */ = {
@@ -147,7 +137,7 @@
 		325F0B8A290165940048E536 /* Interactors */ = {
 			isa = PBXGroup;
 			children = (
-				3214925C29018B9600A32EAF /* CryptoCoinsListInteractor.swift */,
+				3214925C29018B9600A32EAF /* CryptoListInteractor.swift */,
 			);
 			path = Interactors;
 			sourceTree = "<group>";
@@ -155,8 +145,7 @@
 		325F0B8E2901661F0048E536 /* Presentation */ = {
 			isa = PBXGroup;
 			children = (
-				32D6CCF72901F4BF00A40281 /* xibs */,
-				32362D5E29019A0000CEFE5F /* CryptoCoinDetails */,
+				32D6CCF72901F4BF00A40281 /* CustomViews */,
 				3214926D2901996300A32EAF /* CryptoList */,
 				325F0B4028FEDFE90048E536 /* Storybards */,
 			);
@@ -201,12 +190,31 @@
 			path = CryptoCurrency;
 			sourceTree = "<group>";
 		};
-		32D6CCF72901F4BF00A40281 /* xibs */ = {
+		329A725D2909D04C003872FD /* xibs */ = {
 			isa = PBXGroup;
 			children = (
+				32200A122909D28A00BCCA7B /* CryptoCoinDetailsViewController.xib */,
 				325D89012901DD9B00CAC0A5 /* CoinTableViewCell.xib */,
 			);
 			path = xibs;
+			sourceTree = "<group>";
+		};
+		329A725E2909D054003872FD /* classes */ = {
+			isa = PBXGroup;
+			children = (
+				325D89002901DD9B00CAC0A5 /* CoinTableViewCell.swift */,
+				32200A112909D28A00BCCA7B /* CryptoCoinDetailsViewController.swift */,
+			);
+			path = classes;
+			sourceTree = "<group>";
+		};
+		32D6CCF72901F4BF00A40281 /* CustomViews */ = {
+			isa = PBXGroup;
+			children = (
+				329A725E2909D054003872FD /* classes */,
+				329A725D2909D04C003872FD /* xibs */,
+			);
+			path = CustomViews;
 			sourceTree = "<group>";
 		};
 		32D6CCF82902B64100A40281 /* RawDataEntities */ = {
@@ -337,6 +345,7 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				32200A142909D28A00BCCA7B /* CryptoCoinDetailsViewController.xib in Resources */,
 				326AA82728F979CF001C2AC0 /* LaunchScreen.storyboard in Resources */,
 				326AA82428F979CF001C2AC0 /* Assets.xcassets in Resources */,
 				325D89032901DD9B00CAC0A5 /* CoinTableViewCell.xib in Resources */,
@@ -353,9 +362,9 @@
 			files = (
 				32D6CD112902BE0100A40281 /* ApiRequest.swift in Sources */,
 				325D89022901DD9B00CAC0A5 /* CoinTableViewCell.swift in Sources */,
-				3214926429018EDA00A32EAF /* CryptoCoinDetailsViewController.swift in Sources */,
+				32200A132909D28A00BCCA7B /* CryptoCoinDetailsViewController.swift in Sources */,
 				32D6CD0B2902BB1C00A40281 /* CoincapApiDataStore.swift in Sources */,
-				3214925D29018B9600A32EAF /* CryptoCoinsListInteractor.swift in Sources */,
+				3214925D29018B9600A32EAF /* CryptoListInteractor.swift in Sources */,
 				32D6CD0D2902BCEC00A40281 /* ApiClient.swift in Sources */,
 				3201A0212902E6A90034CB44 /* CoincapApiRequest.swift in Sources */,
 				3201A01D2902C31E0034CB44 /* CoincapApiCoinsParser.swift in Sources */,
@@ -370,7 +379,6 @@
 				32D6CCFA2902B66100A40281 /* CoincapApiCoin.swift in Sources */,
 				325F0B74290017950048E536 /* CryptoListTableViewController.swift in Sources */,
 				32D6CD0F2902BCF600A40281 /* RawDataCoinsParser.swift in Sources */,
-				32362D6029019B5300CEFE5F /* CryptoListRouter.swift in Sources */,
 				325F0B91290166760048E536 /* CryptoCoin.swift in Sources */,
 				32D6CCF62901EA7F00A40281 /* CryptoListConfigurator.swift in Sources */,
 			);
@@ -522,6 +530,7 @@
 				DEVELOPMENT_TEAM = K52ZJY2M9Y;
 				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_FILE = CryptoCurrency/Info.plist;
+				INFOPLIST_KEY_CFBundleDisplayName = "Crypto Currencies";
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
 				INFOPLIST_KEY_UILaunchStoryboardName = LaunchScreen;
 				INFOPLIST_KEY_UIMainStoryboardFile = Main;
@@ -554,6 +563,7 @@
 				DEVELOPMENT_TEAM = K52ZJY2M9Y;
 				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_FILE = CryptoCurrency/Info.plist;
+				INFOPLIST_KEY_CFBundleDisplayName = "Crypto Currencies";
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
 				INFOPLIST_KEY_UILaunchStoryboardName = LaunchScreen;
 				INFOPLIST_KEY_UIMainStoryboardFile = Main;

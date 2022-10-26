@@ -4,7 +4,6 @@
     <dependencies>
         <deployment identifier="iOS"/>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="21207"/>
-        <capability name="Safe area layout guides" minToolsVersion="9.0"/>
         <capability name="System colors in document resources" minToolsVersion="11.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
@@ -32,33 +31,11 @@
                             <outlet property="delegate" destination="sKc-rp-klE" id="Ama-cH-PrB"/>
                         </connections>
                     </tableView>
-                    <navigationItem key="navigationItem" title="Currencies" id="agp-nm-HxH">
-                        <barButtonItem key="rightBarButtonItem" title="Refresh" image="arrow.clockwise" catalog="system" id="Goq-WC-oVY">
-                            <color key="tintColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-                            <connections>
-                                <action selector="refreshClicked:" destination="sKc-rp-klE" id="e5l-Nh-pAn"/>
-                            </connections>
-                        </barButtonItem>
-                    </navigationItem>
+                    <navigationItem key="navigationItem" title="Currencies" id="agp-nm-HxH"/>
                 </tableViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="0Wr-Gi-uue" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="1700" y="46.919431279620852"/>
-        </scene>
-        <!--Details-->
-        <scene sceneID="UQT-RK-qW6">
-            <objects>
-                <viewController storyboardIdentifier="CryptoCoinDetailsViewController" title="Details" id="vfl-2k-Ufd" customClass="CryptoCoinDetailsViewController" customModule="CryptoCurrency" customModuleProvider="target" sceneMemberID="viewController">
-                    <view key="view" contentMode="scaleToFill" id="ttd-Ku-JVq">
-                        <rect key="frame" x="0.0" y="0.0" width="390" height="844"/>
-                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
-                        <viewLayoutGuide key="safeArea" id="laH-Aw-fXU"/>
-                        <color key="backgroundColor" systemColor="systemBackgroundColor"/>
-                    </view>
-                </viewController>
-                <placeholder placeholderIdentifier="IBFirstResponder" id="9rU-o6-LFg" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
-            </objects>
-            <point key="canvasLocation" x="2449" y="47"/>
+            <point key="canvasLocation" x="1582" y="47"/>
         </scene>
         <!--Navigation Controller-->
         <scene sceneID="fzL-EU-CXx">
@@ -80,7 +57,6 @@
         </scene>
     </scenes>
     <resources>
-        <image name="arrow.clockwise" catalog="system" width="113" height="128"/>
         <systemColor name="systemBackgroundColor">
             <color white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
         </systemColor>

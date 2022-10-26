@@ -17,11 +17,15 @@ class CoincapApiGateway: CryptoCoinsGatewayProtocol{
     
     func fetchCoins(_ completionHandler: @escaping (_ data: [CryptoCoin], _ error: Error?) -> Void) {
         self.dataStore.requestData { data, error in
-            var array = [CryptoCoin]()
-            for entity in data{
-                array.append(entity.toEntity())
-            }
-            completionHandler(array, error)
+            completionHandler(self.map(data), error)
         }
+    }
+    
+    func map(_ data: [RawDataCoinsEntity]) -> [CryptoCoin]{
+        var array = [CryptoCoin]()
+        for entity in data{
+            array.append(entity.toEntity())
+        }
+        return array
     }
 }

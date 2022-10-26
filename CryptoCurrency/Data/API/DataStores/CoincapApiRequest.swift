@@ -7,7 +7,7 @@
 
 import Foundation
 
-class CoincapApiRequest: ApiRequestProtocol {
+final class CoincapApiRequest: ApiRequestProtocol {
     
     private var urlString: String
     private var httpMethod: String
@@ -18,9 +18,7 @@ class CoincapApiRequest: ApiRequestProtocol {
     }
     
     func generateRequest() -> URLRequest? {
-        guard let url = URL(string: self.urlString) else {
-            return nil
-        }
+        guard let url = URL(string: self.urlString) else { return nil }
         var request = URLRequest(url: url)
         request.httpMethod = self.httpMethod
         return request

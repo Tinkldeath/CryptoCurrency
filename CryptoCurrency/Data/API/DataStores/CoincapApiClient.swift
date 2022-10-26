@@ -7,7 +7,7 @@
 
 import Foundation
 
-class CoincapApiClient: ApiClientProtocol {
+final class CoincapApiClient: ApiClientProtocol {
     
     func executeRequest(_ request: URLRequest, _ completionHandler: @escaping (Data?, Error?) -> Void) {
         let session = URLSession.shared.dataTask(with: request) { data, _, error in
@@ -15,4 +15,5 @@ class CoincapApiClient: ApiClientProtocol {
         }
         session.resume()
     }
+    
 }
