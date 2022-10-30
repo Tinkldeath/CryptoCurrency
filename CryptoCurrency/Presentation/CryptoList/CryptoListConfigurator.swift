@@ -12,6 +12,7 @@ protocol CryptoListCofiguratorProtocol {
 }
 
 class CryptoListConfigurator: CryptoListCofiguratorProtocol {
+    
     func configure(_ view: CryptoListViewProtocol, _ detailsView: CryptoCoinDetailsViewProtocol) {
         let apiClient = CoincapApiClient()
         let apiRequest = CoincapApiRequest(urlString: "https://api.coincap.io/v2/assets", httpMethod: "GET")
@@ -23,4 +24,5 @@ class CryptoListConfigurator: CryptoListCofiguratorProtocol {
         view.setListInteractor(interactor)
         detailsView.setPresenter(presenter)
     }
+    
 }

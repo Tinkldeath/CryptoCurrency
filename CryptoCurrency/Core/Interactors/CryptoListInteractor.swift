@@ -29,9 +29,10 @@ class CryptoListInteractor: CryptoListInteractorProtocol {
                 DispatchQueue.main.async { [weak self] in
                     self?.presenter.presentCoins(coins)
                     self?.presenter.presentError(error)
+                    self?.presenter.endLoading()
                 }
             }
         }
-        self.presenter.endLoading()
     }
+    
 }

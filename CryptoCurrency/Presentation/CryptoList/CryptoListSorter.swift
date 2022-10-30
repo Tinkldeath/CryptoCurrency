@@ -12,27 +12,35 @@ protocol CryptoListSortingStrategyProtocol {
 }
 
 struct PriceUpSortingStrategy: CryptoListSortingStrategyProtocol {
+    
     func sort(_ first: CryptoCoin, _ second: CryptoCoin) -> Bool {
         return first.priceUsd < second.priceUsd
     }
+    
 }
 
 struct PriceDownSortingStrategy: CryptoListSortingStrategyProtocol {
+    
     func sort(_ first: CryptoCoin, _ second: CryptoCoin) -> Bool {
         return first.priceUsd > second.priceUsd
     }
+    
 }
 
 struct RankUpSortingStrategy: CryptoListSortingStrategyProtocol {
+    
     func sort(_ first: CryptoCoin, _ second: CryptoCoin) -> Bool {
         return first.rank < second.rank
     }
+    
 }
 
 struct RankDownSortingStrategy: CryptoListSortingStrategyProtocol {
+    
     func sort(_ first: CryptoCoin, _ second: CryptoCoin) -> Bool {
         return first.rank > second.rank
     }
+    
 }
 
 protocol CryptoListSorterProtocol {

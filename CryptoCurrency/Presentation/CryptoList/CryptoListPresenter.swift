@@ -6,7 +6,6 @@
 //
 
 import Foundation
-import UIKit
 
 protocol CryptoListPresenterProtocol: AnyObject {
     func presentLoading()
@@ -99,4 +98,5 @@ final class CryptoListPresenter: CryptoListPresenterProtocol {
     func sortingOptions() -> [String] {
         return self.sorter.sortingOptions()
     }
+    
 }

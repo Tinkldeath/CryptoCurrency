@@ -28,4 +28,5 @@ class CoincapApiGateway: CryptoCoinsGatewayProtocol{
         }
         return array
     }
+    
 }

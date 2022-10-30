@@ -8,6 +8,7 @@
 import Foundation
 
 class CoincapApiCoinsParser: RawDataCoinsParser {
+    
     func parse(_ data: Data) throws -> [RawDataCoinsEntity] {
         do{
             let parsed = try JSONDecoder().decode(CoincapApiResponse.self, from: data)
@@ -16,4 +17,5 @@ class CoincapApiCoinsParser: RawDataCoinsParser {
             throw NetworkingError(description: "Parsing error: \(String(describing: error))")
         }
     }
+    
 }

@@ -38,7 +38,6 @@ class CryptoListTableViewController: UITableViewController {
         self.tableView.register(UINib(nibName: "CoinTableViewCell", bundle: nil), forCellReuseIdentifier: "CoinTableViewCell")
     }
     
-    
     @IBAction func sortPriceClicked(_ sender: UIBarButtonItem) {
         let ac = UIAlertController(title: "Select sort option", message: nil, preferredStyle: .actionSheet)
         for option in self.presenter.sortingOptions() {
@@ -47,14 +46,17 @@ class CryptoListTableViewController: UITableViewController {
         ac.addAction(UIAlertAction(title: "Cancel", style: .cancel))
         present(ac, animated: true)
     }
+    
 }
 
 // MARK: - Lazy loading pagination
 extension CryptoListTableViewController {
+    
     private func generateDetailPage() -> CryptoCoinDetailsViewController {
         let vc = CryptoCoinDetailsViewController()
         return vc
     }
+    
 }
 
 // MARK: - View protocol implementation
@@ -111,10 +113,12 @@ extension CryptoListTableViewController {
         self.presenter.presentCoinDetails(indexPath.row)
         self.navigationController?.pushViewController(self.detailsVC, animated: true)
     }
+    
 }
 
 //MARK: - Sorting options actions generator
 extension CryptoListTableViewController {
+    
     func generateSortingAction(_ option: String) -> UIAlertAction {
         let action = UIAlertAction(title: option, style: .default){ _ in
             self.sortBy(option)
@@ -122,7 +126,8 @@ extension CryptoListTableViewController {
         return action
     }
     
-    func sortBy(_ action: String) {
+    private func sortBy(_ action: String) {
         self.presenter.presentSortedBy(action)
     }
+    
 }

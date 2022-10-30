@@ -26,6 +26,7 @@ struct CoincapApiCoin: Decodable {
 }
 
 extension CoincapApiCoin : RawDataCoinsEntity {
+    
     func toEntity() -> CryptoCoin {
         return CryptoCoin(
             id: self.id,
@@ -40,4 +41,5 @@ extension CoincapApiCoin : RawDataCoinsEntity {
             changePercent24Hr: Double(self.changePercent24Hr) ?? 0.0,
             vwap24Hr: Double(self.vwap24Hr ?? "") ?? 0.0)
     }
+    
 }
