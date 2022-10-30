@@ -13,11 +13,11 @@ protocol CryptoCoinCellView {
 
 class CoinTableViewCell: UITableViewCell {
        
-    @IBOutlet weak var symbol: UILabel!
-    @IBOutlet weak var name: UILabel!
-    @IBOutlet weak var changePercent24Hr: UILabel!
-    @IBOutlet weak var priceUsd: UILabel!
-    @IBOutlet weak var rank: UILabel!
+    @IBOutlet private weak var symbol: UILabel!
+    @IBOutlet private weak var name: UILabel!
+    @IBOutlet private weak var changePercent24Hr: UILabel!
+    @IBOutlet private weak var priceUsd: UILabel!
+    @IBOutlet private weak var rank: UILabel!
     
     override func awakeFromNib() {
         super.awakeFromNib()
@@ -35,7 +35,7 @@ extension CoinTableViewCell: CryptoCoinCellView {
     func display(symbol: String, name: String, priceUsd: Double, rank: Int, changePercent24Hr: Double) {
         self.symbol.text = symbol
         self.name.text = name
-        self.priceUsd.text = "\(Double(round(priceUsd*100)/100)) USD"
+        self.priceUsd.text = "\(Double(round(priceUsd*100)/100)) $"
         self.rank.text = "Rank: \(rank)"
         self.display(changePercent24Hr: changePercent24Hr)
     }

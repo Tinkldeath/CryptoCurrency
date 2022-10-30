@@ -8,11 +8,11 @@
 import Foundation
 
 protocol CryptoListCofiguratorProtocol {
-    func configure(_ view: CryptoListViewProtocol, _ detailsView: CryptoCoinDetailsViewProtocol?)
+    func configure(_ view: CryptoListViewProtocol, _ detailsView: CryptoCoinDetailsViewProtocol)
 }
 
 class CryptoListConfigurator: CryptoListCofiguratorProtocol {
-    func configure(_ view: CryptoListViewProtocol, _ detailsView: CryptoCoinDetailsViewProtocol?) {
+    func configure(_ view: CryptoListViewProtocol, _ detailsView: CryptoCoinDetailsViewProtocol) {
         let apiClient = CoincapApiClient()
         let apiRequest = CoincapApiRequest(urlString: "https://api.coincap.io/v2/assets", httpMethod: "GET")
         let dataStore = CoincapApiDataStore(parser: CoincapApiCoinsParser(), apiClient: apiClient, apiRequest: apiRequest)
@@ -21,5 +21,6 @@ class CryptoListConfigurator: CryptoListCofiguratorProtocol {
         let interactor = CryptoListInteractor(coinsGateway: gateway, presenter: presenter)
         view.setPresenter(presenter)
         view.setListInteractor(interactor)
+        detailsView.setPresenter(presenter)
     }
 }

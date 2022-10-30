@@ -18,11 +18,11 @@ protocol CryptoListViewProtocol: AnyObject {
 
 class CryptoListTableViewController: UITableViewController {
     
-    private lazy var detailsVC = generateDetailPage()
     private var presenter: CryptoListPresenterProtocol!
     private var interactor: CryptoListInteractorProtocol!
     private var configurator = CryptoListConfigurator()
     private var spinner: UIActivityIndicatorView!
+    private lazy var detailsVC = generateDetailPage()
 
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -30,19 +30,7 @@ class CryptoListTableViewController: UITableViewController {
         self.configurator.configure(self, self.detailsVC)
         self.interactor.fetchCoinsList()
     }
-    
-    override init(nibName nibNameOrNil: String?, bundle nibBundleOrNil: Bundle?) {
-        super.init(nibName: nibNameOrNil, bundle: nibBundleOrNil)
-    }
-    
-    required init?(coder: NSCoder) {
-        super.init(coder: coder)
-    }
-    
-    required override init(style: UITableView.Style) {
-        super.init(style: style)
-    }
-    
+        
     private func setupView(){
         self.view.translatesAutoresizingMaskIntoConstraints = false
         self.spinner = UIActivityIndicatorView(frame: CGRect(x: 0, y: 0, width: 100, height: 100))
@@ -50,6 +38,23 @@ class CryptoListTableViewController: UITableViewController {
         self.tableView.register(UINib(nibName: "CoinTableViewCell", bundle: nil), forCellReuseIdentifier: "CoinTableViewCell")
     }
     
+    
+    @IBAction func sortPriceClicked(_ sender: UIBarButtonItem) {
+        let ac = UIAlertController(title: "Select sort option", message: nil, preferredStyle: .actionSheet)
+        for option in self.presenter.sortingOptions() {
+            ac.addAction(self.generateSortingAction(option))
+        }
+        ac.addAction(UIAlertAction(title: "Cancel", style: .cancel))
+        present(ac, animated: true)
+    }
+}
+
+// MARK: - Lazy loading pagination
+extension CryptoListTableViewController {
+    private func generateDetailPage() -> CryptoCoinDetailsViewController {
+        let vc = CryptoCoinDetailsViewController()
+        return vc
+    }
 }
 
 // MARK: - View protocol implementation
@@ -85,15 +90,6 @@ extension CryptoListTableViewController: CryptoListViewProtocol {
     
 }
 
-// MARK: - Lazy loading pagination
-extension CryptoListTableViewController {
-    
-    private func generateDetailPage() -> CryptoCoinDetailsViewController? {
-        return CryptoCoinDetailsViewController()
-    }
-    
-}
-
 // MARK: - Table view data source & delegate implementation
 extension CryptoListTableViewController {
     
@@ -112,9 +108,21 @@ extension CryptoListTableViewController {
     }
     
     override func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
-        guard let vc = self.detailsVC else { return }
         self.presenter.presentCoinDetails(indexPath.row)
-        self.navigationController?.pushViewController(vc, animated: true)
+        self.navigationController?.pushViewController(self.detailsVC, animated: true)
     }
+}
 
+//MARK: - Sorting options actions generator
+extension CryptoListTableViewController {
+    func generateSortingAction(_ option: String) -> UIAlertAction {
+        let action = UIAlertAction(title: option, style: .default){ _ in
+            self.sortBy(option)
+        }
+        return action
+    }
+    
+    func sortBy(_ action: String) {
+        self.presenter.presentSortedBy(action)
+    }
 }
