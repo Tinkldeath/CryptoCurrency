@@ -22,7 +22,6 @@ class CryptoListConfigurator: CryptoListCofiguratorProtocol {
         let interactor = CryptoListInteractor(coinsGateway: gateway, presenter: presenter)
         view.setPresenter(presenter)
         view.setListInteractor(interactor)
-        detailsView.setPresenter(presenter)
     }
     
 }

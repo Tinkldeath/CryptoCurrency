@@ -13,7 +13,6 @@ protocol CryptoListPresenterProtocol: AnyObject {
     func presentCoins(_ coins: [CryptoCoin])
     func presentError(_ error: Error?)
     func presentCoinDetails(_ index: Int)
-    func presentSelectedCoin()
     func presentSortedBy(_ describing: String)
     
     func coinsCount() -> Int
@@ -54,11 +53,7 @@ final class CryptoListPresenter: CryptoListPresenterProtocol {
     func presentCoinDetails(_ index: Int) {
         let coin = self.coins[index]
         self.selectedCoin = coin
-    }
-    
-    func presentSelectedCoin() {
-        guard let selectedCoin = self.selectedCoin else { return }
-        self.displayDetails(selectedCoin)
+        self.displayDetails(coin)
     }
     
     private func displayDetails(_ coin: CryptoCoin) {

@@ -1,9 +1,9 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="21225" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="21507" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES">
     <device id="retina6_0" orientation="portrait" appearance="light"/>
     <dependencies>
         <deployment identifier="iOS"/>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="21207"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="21505"/>
         <capability name="Safe area layout guides" minToolsVersion="9.0"/>
         <capability name="System colors in document resources" minToolsVersion="11.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
@@ -11,16 +11,16 @@
     <objects>
         <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner" customClass="CryptoCoinDetailsViewController" customModule="CryptoCurrency" customModuleProvider="target">
             <connections>
-                <outlet property="changePercent24Hr" destination="SYI-Fv-g6d" id="Lae-6s-cBk"/>
-                <outlet property="marketCapUsd" destination="B6K-7Y-sy3" id="z1T-rq-mEd"/>
-                <outlet property="maxSupply" destination="jxG-tM-lc3" id="C1c-9v-kg0"/>
-                <outlet property="priceUsd" destination="ZdN-Ir-dJX" id="zPe-mv-rSe"/>
-                <outlet property="rank" destination="vRP-4q-ANj" id="jvh-w2-ZD5"/>
-                <outlet property="supply" destination="3xI-F6-ZDt" id="s5d-KD-rcL"/>
-                <outlet property="symbol" destination="M0f-pl-qAB" id="heJ-zN-avd"/>
-                <outlet property="view" destination="i5M-Pr-FkT" id="sfx-zR-JGt"/>
-                <outlet property="volume24Hr" destination="ggS-QJ-woL" id="dx4-9u-41x"/>
-                <outlet property="vwap24Hr" destination="JPQ-K2-WVz" id="AZA-u8-kRd"/>
+                <outlet property="changePercent24HrLabel" destination="SYI-Fv-g6d" id="KL2-kd-S2w"/>
+                <outlet property="marketCapUsdLabel" destination="B6K-7Y-sy3" id="MsI-vs-sVT"/>
+                <outlet property="maxSupplyLabel" destination="jxG-tM-lc3" id="jP6-Fq-oha"/>
+                <outlet property="priceUsdLabel" destination="ZdN-Ir-dJX" id="ZIN-yN-scQ"/>
+                <outlet property="rankLabel" destination="vRP-4q-ANj" id="DTm-gX-tgx"/>
+                <outlet property="supplyLabel" destination="3xI-F6-ZDt" id="YAD-jS-yDy"/>
+                <outlet property="symbolLabel" destination="M0f-pl-qAB" id="nc9-C5-TRo"/>
+                <outlet property="view" destination="i5M-Pr-FkT" id="ECN-gl-OSo"/>
+                <outlet property="volume24HrLabel" destination="ggS-QJ-woL" id="vaO-8Z-kVj"/>
+                <outlet property="vwap24HrLabel" destination="JPQ-K2-WVz" id="O3m-iF-7OP"/>
             </connections>
         </placeholder>
         <placeholder placeholderIdentifier="IBFirstResponder" id="-2" customClass="UIResponder"/>

@@ -8,8 +8,6 @@
 import UIKit
 
 protocol CryptoCoinDetailsViewProtocol: AnyObject {
-    func setPresenter(_ presenter: CryptoListPresenterProtocol)
-    
     func displayName(_ name: String)
     func displaySymbol(_ symbol: String)
     func displayChangePrecent(_ changePercent24Hr: Double)
@@ -24,80 +22,100 @@ protocol CryptoCoinDetailsViewProtocol: AnyObject {
 
 class CryptoCoinDetailsViewController: UIViewController {
     
-    private var presenter: CryptoListPresenterProtocol!
+    @IBOutlet private weak var symbolLabel: UILabel!
+    @IBOutlet private weak var changePercent24HrLabel: UILabel!
+    @IBOutlet private weak var priceUsdLabel: UILabel!
+    @IBOutlet private weak var rankLabel: UILabel!
+    @IBOutlet private weak var supplyLabel: UILabel!
+    @IBOutlet private weak var maxSupplyLabel: UILabel!
+    @IBOutlet private weak var marketCapUsdLabel: UILabel!
+    @IBOutlet private weak var volume24HrLabel: UILabel!
+    @IBOutlet private weak var vwap24HrLabel: UILabel!
     
-    @IBOutlet private weak var symbol: UILabel!
-    @IBOutlet private weak var changePercent24Hr: UILabel!
-    @IBOutlet private weak var priceUsd: UILabel!
-    @IBOutlet private weak var rank: UILabel!
-    @IBOutlet private weak var supply: UILabel!
-    @IBOutlet private weak var maxSupply: UILabel!
-    @IBOutlet private weak var marketCapUsd: UILabel!
-    @IBOutlet private weak var volume24Hr: UILabel!
-    @IBOutlet private weak var vwap24Hr: UILabel!
+    private var titleValue: String = ""
+    private var symbol: String = ""
+    private var changePercent24Hr: String = ""
+    private var changePercentColor: UIColor = .tintColor
+    private var priceUsd: String = ""
+    private var rank: String = ""
+    private var supply: String = ""
+    private var maxSupply: String = ""
+    private var marketCapUsd: String = ""
+    private var volume24Hr: String = ""
+    private var vwap24Hr: String = ""
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        self.presenter.presentSelectedCoin()
+        self.setupView()
     }
     
     override func viewDidAppear(_ animated: Bool) {
-        super.viewDidAppear(true)
-        self.presenter.presentSelectedCoin()
+        super.viewDidAppear(animated)
+        self.setupView()
     }
     
     override func awakeFromNib() {
         super.awakeFromNib()
     }
+    
+    private func setupView() {
+        self.title = self.titleValue
+        self.symbolLabel.text = self.symbol
+        self.changePercent24HrLabel.text = self.changePercent24Hr
+        self.changePercent24HrLabel.textColor = self.changePercentColor
+        self.priceUsdLabel.text = self.priceUsd
+        self.rankLabel.text = self.rank
+        self.supplyLabel.text = self.supply
+        self.maxSupplyLabel.text = self.maxSupply
+        self.marketCapUsdLabel.text = self.marketCapUsd
+        self.volume24HrLabel.text = self.volume24Hr
+        self.vwap24HrLabel.text = self.vwap24Hr
+    }
 }
 
 extension CryptoCoinDetailsViewController: CryptoCoinDetailsViewProtocol {
-    
-    func setPresenter(_ presenter: CryptoListPresenterProtocol) {
-        self.presenter = presenter
-    }
-    
+        
     func displayName(_ name: String) {
-        self.title = name
+        self.titleValue = name
     }
     
     func displaySymbol(_ symbol: String) {
-        self.symbol.text = symbol
+        self.symbol = symbol
     }
     
     func displayChangePrecent(_ changePercent24Hr: Double) {
         let tuple = changePercent24Hr < 0 ? (sign: "", color: UIColor.red) : (sign: "+", color: UIColor.green)
-        self.changePercent24Hr.text = tuple.sign + "\(changePercent24Hr)%"
-        self.changePercent24Hr.textColor = tuple.color
+        self.changePercent24Hr = tuple.sign + "\(changePercent24Hr)%"
+        self.changePercentColor = tuple.color
     }
     
     func displayPriceUsd(_ priceUsd: Double) {
-        self.priceUsd.text = "\(priceUsd)$"
+        self.priceUsd = "\(priceUsd)$"
     }
     
     func displayRank(_ rank: Int) {
-        self.rank.text = "Rank: \(rank)"
+        self.rank = "Rank: \(rank)"
     }
     
     func displaySupply(_ supply: Double) {
-        self.supply.text = "Supply: \(supply)"
+        self.supply = "Supply: \(supply)"
     }
     
     func displayMaxSupply(_ maxSupply: Double) {
         let display = maxSupply > 0.0 ? "\(maxSupply)" : "No data"
-        self.maxSupply.text = "Max supply: \(display)"
+        self.maxSupply = "Max supply: \(display)"
     }
     
     func displayMarketCapUsd(_ marketCapUsd: Double) {
-        self.marketCapUsd.text = "Market cap: \(marketCapUsd)$"
+        self.marketCapUsd = "Market cap: \(marketCapUsd)$"
     }
     
     func displayVolumeUsd24Hr(_ volumeUsd24Hr: Double) {
-        self.volume24Hr.text = "Volume (24 hr): \(volumeUsd24Hr)$"
+        self.volume24Hr = "Volume (24 hr): \(volumeUsd24Hr)$"
     }
     
     func displayVwap24Hr(_ vwap24Hr: Double) {
-        self.vwap24Hr.text = "VWAP (24 hr): \(vwap24Hr)"
+        self.vwap24Hr = "VWAP (24 hr): \(vwap24Hr)"
     }
     
 }
