@@ -1,4 +1,4 @@
-# CryptoCurrency - iOS - MVP & Clean Architecture
+# Crypto Currency - iOS - MVP & Clean Architecture
 
 ## Run Requirements
 
